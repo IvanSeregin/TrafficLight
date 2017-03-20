@@ -11,10 +11,11 @@ public class TrafficLight {
 
     void start() {
         int countSec = 0;
+        AbstractLight lights[] = {new GreenLight(), new YellowLight(), new RedLight()};
+        int i=0;
         while (countSec <= n) {
-            countSec += new GreenLight().light();
-            countSec += new YellowLight().light();
-            countSec += new RedLight().light();
+            if (i == 3) i = 0;
+            countSec += lights[i++].light();
         }
     }
 }
